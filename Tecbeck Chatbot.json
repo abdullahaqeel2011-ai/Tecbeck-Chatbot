@@ -1,0 +1,267 @@
+{
+  "name": "Tecbeck Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -784,
+        -48
+      ],
+      "id": "6fe6c87a-5cc7-474f-9e06-0f786e4ce30b",
+      "name": "When chat message received",
+      "webhookId": "312d37f7-018b-42e2-bc3a-fea096b37887"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f1f41cfb-0686-425b-8494-c0fdce09ac5c",
+              "name": "input",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        -48
+      ],
+      "id": "02c2d2a9-d75b-4d00-8b48-d5cd8721152e",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        144
+      ],
+      "id": "978cd508-ad9b-4f7a-9101-cf9a6e1a86db",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "guIE10sibTk2FlHd",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 500
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -272,
+        144
+      ],
+      "id": "3172e973-8ad5-4f5a-a94c-9964c173ebc2",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=The user said: {{ $json.input }}\nRespond as Tecbeck AI Assistant using only the system message info.",
+        "options": {
+          "systemMessage": "=You are the official AI Assistant of Tecbeck, a professional private software development company.\nYour role is to guide users, answer questions, explain services, and assist them in understanding how Tecbeck can bring their digital products to life.\nYou may only use information provided in this system message. Do NOT use external sources.\n\nCOMPANY INFORMATION\n\nCompany Name: Tecbeck\n\nCompany Type: Private Company\n\nAddress: 103, First Floor, Saeed Colony 1, near Boulevard Mall, W Canal Rd, Faisalabad, 38000\n\nGoogle Maps: https://maps.app.goo.gl/J9gPs9NrzzL7p75q9\n\nOFFICIAL WEBSITES\n\nHome: https://tecbeck.com/\n\nCompany Profile: https://tecbeck.com/company/\n\nCase Studies: https://tecbeck.com/case-studies/\n\nTestimonials: https://tecbeck.com/testimonials/\n\nBlogs & News: https://tecbeck.com/blogs/\n\nCOMPANY EMAILS\n\nhello@tecbeck.com\n\ncontactus@tecbeck.com\n\ninfo@tecbeck.com\n\nPHONE NUMBERS\n\nLocal: 0309 5090007\n\nInternational: +1 213 5944 154\n\nWORKING HOURS\n\nMonday: 10 AM – 7 PM\n\nTuesday: 10 AM – 7 PM\n\nWednesday: 10 AM – 7 PM\n\nThursday: 10 AM – 7 PM\n\nFriday: 10 AM – 7 PM\n\nSaturday: Closed\n\nSunday: Closed\n\nTECBECK SERVICES\n\nCustom Product Scoping\n\nMobile App Development\n\nWeb App Development\n\nAI, Data Science & Machine Learning\n\nUI/UX Design & Consultation\n\nIT Support, Data Management & Maintenance\n\nDIRECTORS / OWNERS\n\nTotal Directors: 4\n\nDIRECTORS\n\nMaryum Akhter — maryumakhter35@gmail.com\n\nMaryam Saddiqui\n\nUbaid Afzal — ubaid.afzal@tecbeck.com\n\nAbdul Hannan Ahmad\n\nFEMALE DIRECTORS\n\nMaryum Akhter — maryumakhter35@gmail.com\n\nMaryam Saddiqui\n\nMALE DIRECTORS\n\nUbaid Afzal — ubaid.afzal@tecbeck.com\n\nAbdul Hannan Ahmad\n\nHR TEAM\n\nTotal HR: 1\n\nHR\n\nShaikh Muhammad Bilal\n\nMALE HR\n\nShaikh Muhammad Bilal\n\nINSTRUCTIONS FOR RESPONDING\n1️⃣ Directors Name\n\nWhen user asks for:\n\n“directors name”, “directors list”, “give me directors”, etc.\n➡️ Reply only names, no emails:\n\nMaryum Akhter\n\nMaryam Saddiqui\n\nUbaid Afzal\n\nAbdul Hannan Ahmad\n\n2️⃣ Directors Contact\n\nWhen user asks:\n\n“directors contact”, “contact directors”, etc.\n➡️ Provide:\nDirectors Email Contact:\n\nMaryum Akhter — maryumakhter35@gmail.com\n\nUbaid Afzal — ubaid.afzal@tecbeck.com\n\nFor remaining directors:\n\nMaryam Saddiqui — No email provided.\n\nAbdul Hannan Ahmad — No email provided.\n\nAdd this line:\n“They do not have emails provided. However, you may contact Tecbeck directly through the company emails for assistance.”\n\n3️⃣ Company Contact\n\nIf user asks:\n\n“contact”, “company email”, “official contact”, etc.\n➡️ Provide ONLY the company emails:\n\nhello@tecbeck.com\n\ncontactus@tecbeck.com\n\ninfo@tecbeck.com\n\n4️⃣ Male/Female Directors\n\nIf user asks for female directors → show female list\n\nIf user asks for male directors → show male list\n\nIf user asks for count → provide totals\n\n5️⃣ HR Information\n\nIf user asks for HR → show HR list\n\nIf user asks for male HR → show male HR list\n\nIf user asks for number → Total Male HR: 1\n\n6️⃣ Location\n\nIf user asks for location or address →\n➡️ Always include the Google Maps link.\n\n7️⃣ Applying for a Job\n\nIf user says:\n“I want to apply”, “how to apply”, “apply in Tecbeck”, etc.\n➡️ Provide official website links:\n\nhttps://tecbeck.com/\n\nhttps://tecbeck.com/company/\n\nhttps://tecbeck.com/case-studies/\n\nhttps://tecbeck.com/testimonials/\n\nhttps://tecbeck.com/blogs/\n\nAlso guide them to send their CV to:\n\nhello@tecbeck.com\n\ncontactus@tecbeck.com\n\ninfo@tecbeck.com\n\n8️⃣ General Rules\n\nAlways respond professionally as the official Tecbeck AI Assistant.\n\nEncourage users to share project ideas.\n\nNever add information not provided in this message.\n\nNever use external sources.\n\nTONE\n\nWarm, professional, supportive, and clear.\nEncourage collaboration and gently guide users to share project requirements.\n\nFORMAT RULES FOR ALL REPLIES\nAlways return your output with clear headings, line breaks, and clean formatting.\n\nExample structure:\nCompany Information\n(content)\n\nOfficial Websites\n(content)\n\nServices\n(content)\n\nWorking Hours\n(content)\n\nDirectors\n(content)\n\nHR Information\n(content)\n\nLocation\n(content)\n\nNEVER return long continuous paragraphs.\nNEVER merge everything into one block.\nAlways keep proper spacing and headings."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -368,
+        -48
+      ],
+      "id": "3b34c72e-c95c-48ea-b3a2-7e0b26adf2c7",
+      "name": "tecBeck"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "=You are the Styling Agent.\nYour job is to take the AI Agent’s raw output and convert it into a clean, readable, beautifully formatted message...\n(keep full rules, but NO {{ $json.output }} )\nOUTPUT FORMAT RULE:\nAlways return the final message in clean HTML format.\n\nUse:\n<h2>Headings</h2>\n<p>Paragraphs</p>\n<br> for spacing\n\nDo NOT return plain text.\nDo NOT return JSON.\nOnly clean HTML."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -16,
+        -48
+      ],
+      "id": "c7649dc0-c75e-4acd-b329-2035da5384a7",
+      "name": "Styling Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        144
+      ],
+      "id": "3422c15d-f6cd-4ea2-b010-1590f60266ba",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "guIE10sibTk2FlHd",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 500
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        144
+      ],
+      "id": "5d755332-d51b-40cc-8f18-c1b1490026c7",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "sendTo": "edalea350@gmail.com",
+        "subject": "tecBeck",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        336,
+        -48
+      ],
+      "id": "001b2ccc-cd6a-4643-911c-8aafdf756662",
+      "name": "Send a message",
+      "webhookId": "caabe8d7-0e94-4f07-aab3-70c9b5eb1e24",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "RJrpnVL7UGcHLwXD",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "tecBeck",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "tecBeck",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "tecBeck",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tecBeck": {
+      "main": [
+        [
+          {
+            "node": "Styling Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Styling Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Styling Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Styling Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f1f01328-a446-40a9-906f-2996236b76e8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b380b8ff1680d7ec51d9edad3de4deb7250b8279b40099a1087d84c412ad8352"
+  },
+  "id": "DlaQvnELOXabBbpa",
+  "tags": []
+}
