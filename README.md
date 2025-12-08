@@ -151,5 +151,7 @@ Licensed for educational and commercial use.
 👤 Author
 
 Abdullah Aqeel
+
 AI Automation Expert | Software Quality Assurance Engineer
+
 📧 abdullahaqeel2011@gmail.com
