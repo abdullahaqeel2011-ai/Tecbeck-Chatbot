@@ -1,75 +1,232 @@
 # Tecbeck-Chatbot
-🤖 Tecbeck-Chatbot
+🚀 Tecbeck Dual-Agent AI Workflow (n8n)
+AI-Powered Client Support + Internal Automation System
 
-Tecbeck-Chatbot is an AI-powered assistant designed to help users explore Tecbeck’s services, company information, and project-related guidance. It delivers structured, accurate, and professional responses using predefined system prompts — with a built-in styling layer for polished, client-friendly output.
+A production-grade, fully automated Dual AI Agent System built using n8n, designed for Tecbeck.
+This workflow includes:
 
-✨ Features
+A Client Support Agent for handling public queries
 
-🏢 Provides official Tecbeck company details
+A Tecbeck Internal Agent for supporting team operations, documentation, and task management
 
-🛠️ Answers all service-related queries
-(Web, Mobile, AI, UI/UX, IT Support, and more)
+✔ Built for scalability
+✔ Production-ready logic
+✔ Enterprise workflow structure
 
-📑 Structured responses with headings and clean formatting
+🌐 Overview
 
-🎨 Styling Agent for polished, email-ready output
+This workflow uses Google Sheets, Gmail, Google Calendar, and Gemini AI to create a powerful automation system with two intelligent agents:
 
-🔗 Fully compatible with n8n workflow automation
+🔵 Client Agent (Public-Facing)
 
-🧠 100% rule-based — no external data used
+Helps visitors, leads, and clients by answering queries, collecting requirements, and providing official Tecbeck information.
 
-📌 Use Cases
+🟣 Tecbeck Internal Agent
 
-💬 Website chatbot
+Built exclusively for internal use — assists team members with drafting emails, scheduling meetings, generating documents, and supporting technical tasks.
 
-🤝 AI assistant for clients
+✨ Key Features
+🔵 Client Agent — For Users & Leads
 
-📧 Automated email reply agent
+🏢 Service Information Delivery
 
-🏢 Internal or external inquiry assistant
+📥 Lead Capture & Email Notifications to Team
 
-🔄 n8n-powered automation workflows
+📄 Explain Tecbeck Services Clearly & Professionally
 
-🧰 Tech Stack
+🧩 Smart Service Recommendation System
 
-🧠 AI Prompt System
+🧠 Conversation Memory for Natural Chat Experiences
 
-🔄 n8n Workflow Automation
+🟣 Internal Agent — For Tecbeck Team
 
-📏 Rule-based Response Structure
+📊 Client & Task Database Management via Google Sheets
 
-🌐 Ready for frontend & backend integration
+✍️ Professional Email Drafting
 
-⚙️ How It Works
+📆 Google Calendar Meeting Scheduler
 
-🤖 AI Agent handles all logic and provides accurate answers using Tecbeck’s official details.
+🧮 Automation Tools: Calculations, Estimates, Time Tracking
 
-🎨 Styling Agent formats the message into a clean, readable, client-ready response.
+📄 Documentation Helper using Styling Agent
 
-📤 The final answer is delivered to email, website widget, or any API endpoint.
+🧪 Technical Assistance: Briefs, SOPs, and Workflows
 
-🛠️ Customization
+🛠️ Architecture
+User Message  
+    ↓  
+Chat Trigger  
+    ↓  
+Keyword Router ───────────────┐  
+     ↓                        ↓  
+Client Agent            Internal Agent  
+     ↓                        ↓  
+Google Sheets            Google Sheets  
+Gmail                    Gmail  
+Google Calendar          Google Calendar  
+Gemini AI                Gemini AI  
+Styling Layer            Styling Layer  
 
-You can easily modify:
 
-📜 System rules
+Clean, modular, and scalable for enterprise usage.
 
-🧱 Output structure
+🔐 Prerequisites
+Required Accounts
 
-🎙️ Tone and styling
+Google Cloud (Gemini)
 
-🔗 Workflow logic
+Gmail
 
-🖥️ Deployment environment
+Google Sheets
 
-🤝 Contributing
+Google Calendar
 
-Have suggestions?
-Feel free to open issues, submit pull requests, or propose new features & improvements.
+n8n instance
+
+Required Credentials
+
+Gemini API Key
+
+Gmail OAuth2
+
+Google Sheets OAuth2
+
+Calendar OAuth2
+
+📂 Setup Guide
+1️⃣ Prepare Google Sheets
+Client_Inquiries (columns)
+
+Name
+
+Email
+
+Phone
+
+Service Needed
+
+Budget
+
+Message
+
+Notes
+
+Internal_Tasks (columns)
+
+Task ID
+
+Assigned To
+
+Priority
+
+Deadline
+
+Description
+
+Status
+
+2️⃣ Import Workflow into n8n
+
+Go to Workflows → Import
+
+Paste the JSON
+
+Save & activate
+
+3️⃣ Connect Credentials
+
+Update each of these nodes:
+
+Gemini Chat Model
+
+Gmail Send Email
+
+Google Sheets (Read/Write)
+
+Google Calendar
+
+4️⃣ Update Sheet IDs
+
+Insert:
+
+Your Google Sheet Document ID
+
+Sheet names: Client_Inquiries, Internal_Tasks
+
+🚀 Usage Instructions
+🎯 Agent Routing Logic
+User Keyword	Agent Activated
+“internal” / “team”	Tecbeck Internal Agent
+Anything else	Client Agent
+🔵 Client Agent — Examples
+
+“What services does Tecbeck offer?”
+
+“I want to build an app”
+
+“Can someone contact me for a website project?”
+
+“How much does AI automation cost?”
+
+🟣 Internal Agent — Examples
+
+“Internal: draft an email to a client about the UI/UX update”
+
+“Internal: create a task for the development team”
+
+“Internal: schedule a meeting tomorrow at 2 PM”
+
+“Internal: summarize the project requirements”
+
+🧠 Memory System
+
+500-token rolling memory
+
+Maintains context
+
+Prevents overflow
+
+Ensures stable execution
+
+🧩 Customization Options
+Modify Prompts (system behavior)
+
+Client Agent Node → Client instructions
+
+Internal Agent Node → Internal rules
+
+Add More Integrations
+
+HubSpot / Salesforce
+
+Twilio (SMS/WhatsApp)
+
+Stripe (Payments)
+
+Google Docs (Document generation)
+
+Memory Adjustment
+
+Modify:
+
+contextWindowLength: 500
+
+🛡️ Best Practices
+
+Keep Sheets clean and validated
+
+Monitor workflow execution logs
+
+Respect Google API rate limits
+
+Test both agents after changes
+
+Separate internal commands carefully
 
 👤 Author
 
-Abdullah Aqeel AI Automation Expert | Software Quality Assurance Engineer 📧 abdullahaqeel2011@gmail.com
+Abdullah Aqeel
+AI Automation Expert • Software Quality Assurance Engineer 📧 abdullahaqeel2011@gmail.com
 
 📄 License
 
