@@ -1,66 +1,68 @@
 # Tecbeck-Chatbot
-Tecbeck-Chatbot
+🤖 Tecbeck-Chatbot
 
-Tecbeck-Chatbot is an AI-powered assistant designed to help users explore Tecbeck’s services, company information, and project guidance. It delivers structured, accurate responses using predefined system prompts and a styling layer to ensure professional, client-friendly output.
+Tecbeck-Chatbot is an AI-powered assistant designed to help users explore Tecbeck’s services, company information, and project-related guidance. It delivers structured, accurate, and professional responses using predefined system prompts — with a built-in styling layer for polished, client-friendly output.
 
-Features
+✨ Features
 
-Provides official Tecbeck company details
+🏢 Provides official Tecbeck company details
 
-Answers service-related queries (Web, Mobile, AI, UI/UX, IT Support)
+🛠️ Answers all service-related queries
+(Web, Mobile, AI, UI/UX, IT Support, and more)
 
-Structured responses with headings and clean formatting
+📑 Structured responses with headings and clean formatting
 
-Styling Agent for polished, email-friendly output
+🎨 Styling Agent for polished, email-ready output
 
-N8N workflow–compatible prompt system
+🔗 Fully compatible with n8n workflow automation
 
-Fully rule-based: no external data used
+🧠 100% rule-based — no external data used
 
-Use Cases
+📌 Use Cases
 
-Website chatbot
+💬 Website chatbot
 
-AI assistant for clients
+🤝 AI assistant for clients
 
-Automated email reply agent
+📧 Automated email reply agent
 
-Internal or external inquiry assistant
+🏢 Internal or external inquiry assistant
 
-n8n-based automation workflows
+🔄 n8n-powered automation workflows
 
-Tech Stack
+🧰 Tech Stack
 
-AI Prompt System
+🧠 AI Prompt System
 
-n8n Workflow Automation
+🔄 n8n Workflow Automation
 
-Rule-based Response Structure
+📏 Rule-based Response Structure
 
-Frontend/Backend ready integration
+🌐 Ready for frontend & backend integration
 
-How It Works
+⚙️ How It Works
 
-AI Agent handles logic and provides accurate answers using Tecbeck’s official details.
+🤖 AI Agent handles all logic and provides accurate answers using Tecbeck’s official details.
 
-Styling Agent formats the message into a clean, readable, client-ready response.
+🎨 Styling Agent formats the message into a clean, readable, client-ready response.
 
-The final answer is sent to email, website widget, or API endpoint.
+📤 The final answer is delivered to email, website widget, or any API endpoint.
 
-Customization
+🛠️ Customization
 
 You can easily modify:
 
-System rules
+📜 System rules
 
-Output format
+🧱 Output structure
 
-Tone and styling
+🎙️ Tone and styling
 
-Workflow logic
+🔗 Workflow logic
 
-Deployment environment
+🖥️ Deployment environment
 
-Contributing
+🤝 Contributing
 
-Feel free to submit improvements or open issues for enhancements or new features.
+Have suggestions?
+Feel free to open issues, submit pull requests, or propose new features & improvements.
