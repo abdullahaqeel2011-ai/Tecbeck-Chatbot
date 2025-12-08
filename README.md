@@ -153,5 +153,3 @@ Licensed for educational and commercial use.
 Abdullah Aqeel
 
 AI Automation Expert | Software Quality Assurance Engineer
-
-📧 abdullahaqeel2011@gmail.com
