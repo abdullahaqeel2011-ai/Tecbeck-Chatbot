@@ -66,3 +66,11 @@ You can easily modify:
 
 Have suggestions?
 Feel free to open issues, submit pull requests, or propose new features & improvements.
+
+👤 Author
+
+Abdullah Aqeel AI Automation Expert | Software Quality Assurance Engineer 📧 abdullahaqeel2011@gmail.com
+
+📄 License
+
+This project is licensed for educational and commercial use.
