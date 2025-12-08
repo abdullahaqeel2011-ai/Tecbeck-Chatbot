@@ -152,4 +152,4 @@ Licensed for educational and commercial use.
 
 Abdullah Aqeel
 
-AI Automation Engineer | Software Quality Assurance (SQA)
+AI Automation Expert | Software Quality Assurance Engineer (SQAE)
